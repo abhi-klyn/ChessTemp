@@ -14,6 +14,7 @@ public abstract class Piece {
     public Piece(Spot currentSpot, Color pieceColor) {
         this.currentSpot = currentSpot;
         this.pieceColor = pieceColor;
+        this.validMoves = new HashSet<Move>();
     }
 
     public boolean isAlive() {

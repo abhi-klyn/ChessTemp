@@ -6,6 +6,7 @@ public class Pawn extends Piece{
 
     public Pawn(Spot currentSpot, Color pieceColor) {
         super(currentSpot, pieceColor);
+        validMoves.add(new SingleMoveDown());
     }
 
     @Override
@@ -19,7 +20,7 @@ public class Pawn extends Piece{
             if (neverMovedBefore){
                 validMoves.add(new DoubleMoveUp());
             }
-            validMoves.add(new SingleMoveUp(this));
+            validMoves.add(new SingleMoveUp());
         }
 
         else{
