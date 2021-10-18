@@ -1,5 +1,6 @@
 package model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Pawn extends Piece{
@@ -14,22 +15,14 @@ public class Pawn extends Piece{
         return validMoves;
     }
 
-    @Override
-    public void setValidMoves(Set<Move> validMoves) {
-        if (this.pieceColor == Color.WHITE){
-            if (neverMovedBefore){
-                validMoves.add(new DoubleMoveUp());
-            }
-            validMoves.add(new SingleMoveUp());
+    public void setNeverMovedBefore(boolean neverMovedBefore) {
+        if (neverMovedBefore == false) {
+            // Only for pawn, Creates a new HashSet and adds only single move up
+            // -- removing DoubleMove thing from its valid moves. 
+            this.validMoves = new HashSet<>();
+            this.validMoves.add(new SingleMoveUp());
         }
-
-        else{
-            if (neverMovedBefore){
-                validMoves.add(new DoubleMoveDown());
-            }
-            validMoves.add(new DoubleMoveUp());
-        }
-
+        this.neverMovedBefore = neverMovedBefore;
     }
 
 

@@ -25,9 +25,13 @@ public abstract class Piece {
         isAlive = alive;
     }
 
-    public abstract Set<Move> getValidMoves();
+    public Set<Move> getValidMoves() {
+        return validMoves;
+    }
 
-    public abstract void setValidMoves(Set<Move> validMoves);
+    public void setValidMoves(Set<Move> validMoves) {
+        this.validMoves = validMoves;
+    }
 
     public Spot getCurrentSpot() {
         return currentSpot;

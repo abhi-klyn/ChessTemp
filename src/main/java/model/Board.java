@@ -24,6 +24,7 @@ public class Board {
             if (move.isValid(x1, y1, x2, y2)) {
                 boardSpots[x2][y2].occupyingPiece = boardSpots[x1][y1].occupyingPiece;
                 boardSpots[x1][y1].occupyingPiece = null;
+                piece.setNeverMovedBefore(false);
                 return true;
             }
         }
